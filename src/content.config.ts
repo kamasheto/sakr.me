@@ -9,9 +9,13 @@ const blog = defineCollection({
 		title: z.string(),
 		description: z.string(),
 		// Transform string to Date object
-		pubDate: z.coerce.date(),
+		pubDate: z.coerce.date().optional(),
 		updatedDate: z.coerce.date().optional(),
 		heroImage: z.string().optional(),
+		
+		orientation: z.enum(["horizontal", "vertical"]).default("vertical").optional(),
+		withComments: z.boolean().default(true).optional(),
+		withTitle: z.boolean().default(true).optional(),
 	}),
 });
 

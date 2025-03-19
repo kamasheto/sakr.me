@@ -1,23 +1,34 @@
 ---
-import BaseHead from '../components/BaseHead.astro';
-import Header from '../components/Header.astro';
-import Footer from '../components/Footer.astro';
+import Layout from '../layouts/BlogPost.astro';
+import { marked } from 'marked';
 import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
+
 ---
 
-<!doctype html>
-<html lang="en">
-	<head>
-		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-	</head>
-	<body>
-		<Header />
-		<main>
-			<h1>WIP</h1>
-			<p>
-				I've come to terms with finally giving my website a bit of time and love. Things are under construction at the moment - check back soon!
-			</p>
-		</main>
-		<Footer />
-	</body>
-</html>
+<Layout
+	title={SITE_TITLE}
+	description={SITE_DESCRIPTION}
+	heroImage="/854c779a-ccd8-4bef-8189-1895bf04ea41.jpg"
+	orientation="horizontal"
+	withComments={false}
+	withTitle={false}
+>
+	<div set:html={marked(`
+Hey.
+
+I'm Mahmoud. Some call me Mo. Which sometimes means I get called Mohammed. Which brings me joy.
+
+When I'm not pretending to write code that matters, I'm probably eating. Or something.
+
+📍 Berlin<br />
+🏡 Mansoura, Egypt<br />
+🗣️ Arabic, English, German<br />
+🌍 @kamasheto<br />
+
+<div class="faded">
+In loving memory of Mohammed. <br />
+إنا لله وإنا إليه راجعون. ربنا يرحمك يا محمد
+</div>
+
+	`)} />
+</Layout>
