@@ -11,6 +11,6 @@ Setting up a blog feels nostalgic. I have vague memories of when I first stumble
 
 I quite enjoyed writing unspoken words to people that mattered back then. Only to never be read, but hey.
 
-Alas, nothing lasts forever.
+Alas, nothing lasts forever. We're now in a world of Javascript (well, Typescript.) A blog can be a simple framework (hello [Astro](https://astro.build/)) that can be chewed and ends up being a few static files with a simple git push (hello [Netlify](https://www.netlify.com/)). And thanks to the beauty of sharing (hello [Andrew](https://andrewevans.dev/blog/2023-08-15-building-a-blog-with-astro/)), it can be pretty easy to have something pleasant up and running pretty quickly. (There's even an [RSS](https://sakr.me/rss.xml) feed -- which I don't even use anymore after Google Reader was shut down, but hey. In the spirit of nostalgia.)
 
-We're now in a world of Javascript (well, typescript.) A blog can be a simple framework (hello [Astro](https://astro.build/)) that can be chewed and ends up being a few static files with a simple git push (hello [Netlify](https://www.netlify.com/)). And thanks to the beauty of sharing (hello [Andrew](https://andrewevans.dev/blog/2023-08-15-building-a-blog-with-astro/)), it can be pretty easy to have something pleasant up and running pretty quickly. (There's even an [RSS](https://sakr.me/rss.xml) feed -- which I don't even use anymore after Google Reader was shut down, but hey. In the spirit of nostalgia.)
+Comments are powered by [Giscus](https://giscus.app/), and source code is on [Github](https://github.com/kamasheto/sakr.me) for your viewing pleasure.
