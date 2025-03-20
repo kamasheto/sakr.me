@@ -4,10 +4,10 @@ const Comments = () => {
     return (
         <Giscus
             id="comments"
-            repo="kamasheto/sakr.me-discussions"
-            repoId="R_kgDOOJEfWQ"
-            category="Site Comments and Reactions"
-            categoryId="DIC_kwDOOJEfWc4CoEO1"
+            repo="kamasheto/sakr.me"
+            repoId="R_kgDOOJCn4g"
+            category="Site Interactions"
+            categoryId="DIC_kwDOOJCn4s4CoRkp"
             mapping="og:title"
             reactionsEnabled="1"
             inputPosition="top"
