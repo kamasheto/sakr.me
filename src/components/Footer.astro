@@ -2,10 +2,7 @@
 import { FaGithubAlt } from "react-icons/fa6";
 import { PiMailboxBold } from "react-icons/pi";
 import { GrInstagram } from "react-icons/gr";
-
-
-
-
+import { COMMIT_HASH } from '../consts';
 
 const today = new Date();
 ---
@@ -29,6 +26,7 @@ const today = new Date();
 			<FaGithubAlt />
 		</a>
 	</div>
+	<div class="pt-4 text-gray-200 text-xs">v{COMMIT_HASH}</div>
 </footer>
 <style>
 	footer {
