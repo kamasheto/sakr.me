@@ -14,12 +14,12 @@ type Props = CollectionEntry<'blog'>['data'];
 const { 
 	title, 
 	description, 
-	pubDate, 
+	pubDate = new Date(), 
 	updatedDate, 
 	heroImage, 
 	orientation,
-	withComments,
-	withTitle,
+	hideComments,
+	hideTitle,
 } = Astro.props;
 ---
 
@@ -36,7 +36,7 @@ const {
 					{heroImage && <img width={1020} height={510} src={heroImage} alt="" />}
 				</div>
 				<div class="prose">
-					{withTitle && <>
+					{!hideTitle && <>
 						<div class="title">
 							<div class="date">
 								{pubDate && <FormattedDate date={pubDate} />}
@@ -55,7 +55,7 @@ const {
 					<slot />
 				</div>
 			</article>
-			{withComments && <>
+			{!hideComments && <>
 				<div class="comments">
 					<Comments client:only="react" />
 				</div>

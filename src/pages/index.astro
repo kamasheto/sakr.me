@@ -1,7 +1,14 @@
 ---
-import Layout from '../layouts/BlogPost.astro';
+import { getCollection } from 'astro:content';
 import { marked } from 'marked';
+
+import Layout from '../layouts/BlogPost.astro';
 import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
+import FormattedDate from '../components/FormattedDate.astro';
+
+const post = (await getCollection('blog')).sort(
+	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
+).slice(0, 1)[0];
 
 ---
 
@@ -10,8 +17,9 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 	description={SITE_DESCRIPTION}
 	heroImage="/854c779a-ccd8-4bef-8189-1895bf04ea41.jpg"
 	orientation="horizontal"
-	withComments={false}
-	withTitle={false}
+	pubDate={new Date()}
+	hideComments={true}
+	hideTitle={true}
 >
 	<div set:html={marked(`
 Hey.
@@ -20,7 +28,7 @@ I'm Mahmoud. Some call me Mo. Which means I sometimes get called Mohammed. Which
 
 When I'm not pretending to write code that matters, I'm probably eating something sweet. Or something.
 
-📍 Berlin<br />
+📍 Berlin, Germany<br />
 🏡 Mansoura, Egypt<br />
 🗣️ <span title="Egyptian / Arabic">🇪🇬</span> 🇬🇧 🇩🇪<br />
 🌍 @kamasheto<br />
@@ -31,4 +39,9 @@ In loving memory of Mohammed. <br />
 </div>
 
 	`)} />
+
+	<section class="pt-12">
+		<div class="text-m ">Latest post: 
+			<a href={`/blog/${post.id}/`} >{post.data.title}</a> (<FormattedDate date={post.data.pubDate} />)</div>
+	  </section>
 </Layout>
