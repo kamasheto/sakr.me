@@ -1,8 +1,11 @@
 ---
-import { 
-	FaGithubAlt,
-	FaInstagram,
-} from "react-icons/fa6";
+import { FaGithubAlt } from "react-icons/fa6";
+import { PiMailboxBold } from "react-icons/pi";
+import { GrInstagram } from "react-icons/gr";
+
+
+
+
 
 const today = new Date();
 ---
@@ -10,9 +13,16 @@ const today = new Date();
 <footer>
 	&copy; {today.getFullYear()} Mahmoud. All rights reserved.
 	<div class="social-links">
+		<a
+			href="mailto:&#x66;&#x61;&#x6E;&#x73;&#x40;&#x73;&#x61;&#x6B;&#x72;&#x2E;&#x6D;&#x65;"
+			target="_blank"
+			title="Email is encoded. Clicking this link might not work. Copy email to send an email">
+			<span class="sr-only">Email me</span>
+			<PiMailboxBold />
+		</a>
 		<a href="https://www.instagram.com/kamasheto/" target="_blank">
 			<span class="sr-only">Find me on Instagram</span>
-			<FaInstagram />
+			<GrInstagram />
 		</a>
 		<a href="https://github.com/kamasheto" target="_blank">
 			<span class="sr-only">Find me on Github</span>
