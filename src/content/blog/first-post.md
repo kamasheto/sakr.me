@@ -1,8 +1,8 @@
 ---
-title: 'First post'
+title: '🥇 First post'
 description: 'Lorem ipsum dolor sit amet'
 pubDate: '2025-03-20'
-heroImage: '/blog-placeholder-3.jpg'
+heroImage: '/placeholders/blog-placeholder-3.jpg'
 ---
 
 It's been quite some time since I gave my website some love and time, and I decided now is as good time as any to finally do something about that.

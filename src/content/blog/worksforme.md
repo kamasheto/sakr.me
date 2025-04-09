@@ -1,8 +1,8 @@
 ---
-title: 'WorksForMe.online'
+title: '👍 WorksForMe.online'
 description: 'Find times in other timezones'
 pubDate: '2025-03-24'
-heroImage: '/worksforme.png'
+heroImage: '/post-heroes/worksforme.jpg'
 ---
 
 Over the weekend I released this little tool called worksforme.online.

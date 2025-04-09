@@ -2,7 +2,11 @@
 import BaseHead from '../../components/BaseHead.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
-import { SITE_TITLE, SITE_DESCRIPTION } from '../../consts';
+import { 
+	SITE_TITLE, 
+	SITE_DESCRIPTION, 
+	HIGHLIGHTED_POSTS 
+} from '../../consts';
 import { getCollection } from 'astro:content';
 import FormattedDate from '../../components/FormattedDate.astro';
 import { Image } from 'astro:assets';
@@ -10,6 +14,8 @@ import { Image } from 'astro:assets';
 const posts = (await getCollection('blog')).sort(
 	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
 );
+const topPosts = posts.slice(0, HIGHLIGHTED_POSTS);
+const otherPosts = posts.slice(HIGHLIGHTED_POSTS);
 ---
 
 <!doctype html>
@@ -20,7 +26,7 @@ const posts = (await getCollection('blog')).sort(
 			main {
 				width: 960px;
 			}
-			ul {
+			ul.highlighted-posts {
 				display: flex;
 				flex-wrap: wrap;
 				gap: 2rem;
@@ -28,29 +34,29 @@ const posts = (await getCollection('blog')).sort(
 				margin: 0;
 				padding: 0;
 			}
-			ul li {
+			ul.highlighted-posts li {
 				width: calc(50% - 1rem);
 			}
-			ul li * {
+			ul.highlighted-posts li * {
 				text-decoration: none;
 				transition: 0.2s ease;
 			}
-			ul li:first-child {
+			ul.highlighted-posts li:first-child {
 				width: 100%;
 				margin-bottom: 1rem;
 				text-align: center;
 			}
-			ul li:first-child img {
+			ul.highlighted-posts li:first-child img {
 				width: 100%;
 			}
-			ul li:first-child .title {
+			ul.highlighted-posts li:first-child .title {
 				font-size: 2.369rem;
 			}
-			ul li img {
+			ul.highlighted-posts li img {
 				margin-bottom: 0.5rem;
 				border-radius: 12px;
 			}
-			ul li a {
+			ul.highlighted-posts li a {
 				display: block;
 			}
 			.title {
@@ -62,25 +68,25 @@ const posts = (await getCollection('blog')).sort(
 				margin: 0;
 				color: rgb(var(--gray));
 			}
-			ul li a:hover h4,
-			ul li a:hover .date {
+			ul.highlighted-posts li a:hover h4,
+			ul.highlighted-posts li a:hover .date {
 				color: rgb(var(--accent));
 			}
-			ul a:hover img {
+			ul.highlighted-posts a:hover img {
 				box-shadow: var(--box-shadow);
 			}
 			@media (max-width: 720px) {
-				ul {
+				ul.highlighted-posts {
 					gap: 0.5em;
 				}
-				ul li {
+				ul.highlighted-posts li {
 					width: 100%;
 					text-align: center;
 				}
-				ul li:first-child {
+				ul.highlighted-posts li:first-child {
 					margin-bottom: 0;
 				}
-				ul li:first-child .title {
+				ul.highlighted-posts li:first-child .title {
 					font-size: 1.563em;
 				}
 			}
@@ -90,9 +96,9 @@ const posts = (await getCollection('blog')).sort(
 		<Header />
 		<main>
 			<section>
-				<ul>
+				<ul class="highlighted-posts">
 					{
-						posts.map((post) => (
+						topPosts.map((post) => (
 							<li>
 								<a href={`/blog/${post.id}/`}>
 									<Image width={720} height={360} src={post.data.heroImage ?? ''} alt="" />
@@ -106,6 +112,22 @@ const posts = (await getCollection('blog')).sort(
 					}
 				</ul>
 			</section>
+			{!!otherPosts.length && (
+				<section class="mt-8">
+					<p class="text-3xl text-gray-500">🗄️ more posts</p>
+					<ul>
+						{
+							otherPosts.map((post) => (
+								<li>
+									<a href={`/blog/${post.id}/`}>
+										{post.data.title} <span class="date text-xs"><FormattedDate date={post.data.pubDate} /></span>
+									</a>
+								</li>
+							))
+						}
+					</ul>
+				</section>
+			)}
 		</main>
 		<Footer />
 	</body>

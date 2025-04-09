@@ -5,3 +5,5 @@ import { execSync } from 'node:child_process';
 export const SITE_TITLE = 'Mahmoud\'s';
 export const SITE_DESCRIPTION = 'Welcome to yet another blog website!';
 export const COMMIT_HASH = execSync('git rev-parse --short HEAD').toString().trim();
+
+export const HIGHLIGHTED_POSTS = 3;
