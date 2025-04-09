@@ -8,7 +8,7 @@ const Comments = () => {
             repoId="R_kgDOOJCn4g"
             category="Site Interactions"
             categoryId="DIC_kwDOOJCn4s4CoRkp"
-            mapping="url"
+            mapping="pathname"
             reactionsEnabled="1"
             inputPosition="top"
             theme="preferred_color_scheme"
