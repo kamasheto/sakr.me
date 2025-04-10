@@ -9,7 +9,15 @@ import FormattedDate from '../components/FormattedDate.astro';
 
 import './styles.css';
 
-type Props = CollectionEntry<'blog'>['data'];
+type SiblingLink = {
+	slug: string;
+	title: string;
+	url: string;
+};
+type Props = CollectionEntry<'blog'>['data'] & {
+	previous?: SiblingLink | null;
+	next?: SiblingLink | null;
+};
 
 const { 
 	title, 
@@ -20,6 +28,8 @@ const {
 	orientation,
 	hideComments,
 	hideTitle,
+	previous,
+	next,
 } = Astro.props;
 ---
 
@@ -53,6 +63,15 @@ const {
 						</div>
 					</>}
 					<slot />
+					<div class="navigation mt-8 flex justify-between text-xs">
+						{previous && <a href={previous.url} class="px-4 py-2 rounded-4xl bg-gray-100 hover:bg-gray-200">
+							← {previous.title}
+						</a>}
+						<div></div>
+						{next && <a href={next.url} class="px-4 py-2 rounded-4xl bg-gray-100 hover:bg-gray-200">
+							{next.title} →
+						</a>}
+					  </div>
 				</div>
 			</article>
 			{!hideComments && <>
