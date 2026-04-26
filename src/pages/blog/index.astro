@@ -10,11 +10,9 @@ import {
 import { getCollection } from 'astro:content';
 import FormattedDate from '../../components/FormattedDate.astro';
 import { Image } from 'astro:assets';
-import { getBlogSlug } from '../../content/blog';
+import { getBlogSlug, sortBlogEntriesByNumberDesc } from '../../content/blog';
 
-const posts = (await getCollection('blog')).sort(
-	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
-);
+const posts = sortBlogEntriesByNumberDesc(await getCollection('blog'));
 const topPosts = posts.slice(0, HIGHLIGHTED_POSTS);
 const otherPosts = posts.slice(HIGHLIGHTED_POSTS);
 ---

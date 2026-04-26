@@ -4,10 +4,30 @@ import { join } from 'node:path';
 
 const postsDir = join(process.cwd(), 'src/content/blog');
 const filenamePattern = /^(\d+)-(.+)\.(md|mdx)$/;
-const defaultHeroImage = '/placeholders/blog-placeholder-2.jpg';
+const defaultHeroImage = '/placeholders/monthly-treasures.png';
 
 function getToday() {
 	return new Date().toISOString().slice(0, 10);
+}
+
+function getPostTitle() {
+	return process.argv.slice(2).join(' ').trim() || 'untitled';
+}
+
+function escapeYamlSingleQuotedString(value: string) {
+	return value.replaceAll("'", "''");
+}
+
+function slugifyTitle(value: string) {
+	return (
+		value
+			.normalize('NFKD')
+			.replace(/[\u0300-\u036f]/g, '')
+			.toLowerCase()
+			.replace(/['"]/g, '')
+			.replace(/[^a-z0-9]+/g, '-')
+			.replace(/^-+|-+$/g, '') || 'untitled'
+	);
 }
 
 async function main() {
@@ -29,7 +49,9 @@ async function main() {
 	);
 	const nextNumber = highestNumber + 1;
 	const nextPrefix = String(nextNumber).padStart(width, '0');
-	const filename = `${nextPrefix}-untitled.md`;
+	const title = getPostTitle();
+	const filenameSlug = slugifyTitle(title);
+	const filename = `${nextPrefix}-${filenameSlug}.md`;
 	const filepath = join(postsDir, filename);
 
 	if (existsSync(filepath)) {
@@ -37,7 +59,7 @@ async function main() {
 	}
 
 	const contents = `---
-title: 'untitled'
+title: '${escapeYamlSingleQuotedString(title)}'
 description: ''
 pubDate: '${getToday()}'
 heroImage: '${defaultHeroImage}'
