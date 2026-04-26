@@ -2,11 +2,12 @@
 import { type CollectionEntry, getCollection } from 'astro:content';
 import BlogPost from '../../layouts/BlogPost.astro';
 import { render } from 'astro:content';
+import { getBlogSlug } from '../../content/blog';
 
 export async function getStaticPaths() {
 	const posts = await getCollection('blog');
 	return posts.map((post) => ({
-		params: { slug: post.id },
+		params: { slug: getBlogSlug(post.id) },
 		props: post,
 	}));
 };
@@ -15,8 +16,8 @@ const posts = (await getCollection('blog')).sort(
 	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
 ).map(
 	(post) => ({
-		slug: post.id,
-		url: '/blog/' + post.id,
+		slug: getBlogSlug(post.id),
+		url: '/blog/' + getBlogSlug(post.id),
 		title: post.data.title,
 		pubDate: post.data.pubDate,
 	})
@@ -25,7 +26,7 @@ const posts = (await getCollection('blog')).sort(
 type Props = CollectionEntry<'blog'>;
 
 const post = Astro.props;
-const currentIndex = posts.findIndex((p) => p.slug === post.id);
+const currentIndex = posts.findIndex((p) => p.slug === getBlogSlug(post.id));
 const previous = currentIndex < posts.length - 1 ? posts[currentIndex + 1] : null;
 const next = currentIndex > 0 ? posts[currentIndex - 1] : null;
 
