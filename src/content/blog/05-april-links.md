@@ -18,6 +18,7 @@ While interviewing with DigitalService (excited to start in roughly a week!), I 
 
 ### Noteable mentions
 These are not April findings, but since this is the first edition, here's a list of other cool gigs that make my life a tad easier:
+* [iximiuz Labs](https://labs.iximiuz.com/) is a unique playground for DevOps and Platform Engineers. It's tutorials on steroids, coming from someone who speaks fluently with machines. With their challenge based approach, learning is focused and engaging.
 * [Dia browser](https://www.diabrowser.com) browser tabs should be vertical by default. And AI at your fingertips is a given for 2026
 * [cmux Terminal](https://www.cmux.dev/) is the mac terminal you didn't know you needed (also with vertical windows + horizontal tabs/window)
 * [ZoneShare.app](https://zoneshare.app/) is the utility tool every wide-screen user needs
