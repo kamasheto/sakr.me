@@ -2,11 +2,13 @@
   "name": "sakr.me",
   "type": "module",
   "version": "0.0.1",
+  "packageManager": "bun@1.3.13",
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "compose": "bun run scripts/new-post.ts"
   },
   "dependencies": {
     "@astrojs/mdx": "^4.2.1",

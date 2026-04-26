@@ -5,6 +5,7 @@ import { marked } from 'marked';
 import Layout from '../layouts/BlogPost.astro';
 import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 import FormattedDate from '../components/FormattedDate.astro';
+import { getBlogSlug } from '../content/blog';
 
 const post = (await getCollection('blog')).sort(
 	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
@@ -42,6 +43,6 @@ In loving memory of Mohammed. <br />
 
 	<section class="pt-12">
 		<div class="text-m ">Latest post: 
-			<a href={`/blog/${post.id}/`} >{post.data.title}</a> (<FormattedDate date={post.data.pubDate} />)</div>
+			<a href={`/blog/${getBlogSlug(post.id)}/`} >{post.data.title}</a> (<FormattedDate date={post.data.pubDate} />)</div>
 	  </section>
 </Layout>
