@@ -26,6 +26,7 @@ const {
 	updatedDate, 
 	heroImage, 
 	orientation,
+	direction = 'ltr',
 	hideComments,
 	hideTitle,
 	previous,
@@ -62,7 +63,9 @@ const {
 							<hr />
 						</div>
 					</>}
-					<slot />
+					<div class="post-content" dir={direction}>
+						<slot />
+					</div>
 					<div class="navigation mt-8 flex justify-between text-xs">
 						{previous && <a href={previous.url} class="px-4 py-2 rounded-4xl bg-gray-100 hover:bg-gray-200">
 							← {previous.title}

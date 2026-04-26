@@ -14,6 +14,7 @@ const blog = defineCollection({
 		heroImage: z.string().optional(),
 		
 		orientation: z.enum(["horizontal", "vertical"]).default("vertical").optional(),
+		direction: z.enum(["ltr", "rtl"]).default("ltr").optional(),
 		hideComments: z.boolean().default(false).optional(),
 		hideTitle: z.boolean().default(false).optional(),
 	}),

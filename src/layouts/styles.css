@@ -20,6 +20,9 @@ main {
     padding-top: 0;
     color: rgb(var(--gray-dark));
 }
+.post-content {
+    text-align: start;
+}
 /* Horizontal layout */
 .horizontal {
     display: flex;
