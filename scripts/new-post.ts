@@ -4,7 +4,7 @@ import { join } from 'node:path';
 
 const postsDir = join(process.cwd(), 'src/content/blog');
 const filenamePattern = /^(\d+)-(.+)\.(md|mdx)$/;
-const defaultHeroImage = '/placeholders/monthly-treasures.png';
+const defaultHeroImage = '/placeholders/monthly-treasures-01.png';
 
 function getToday() {
 	return new Date().toISOString().slice(0, 10);
