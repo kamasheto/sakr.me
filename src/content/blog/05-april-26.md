@@ -1,5 +1,5 @@
 ---
-title: '🪎 April Links'
+title: '🪎 April 26'
 description: ''
 pubDate: '2026-04-26'
 heroImage: '/placeholders/monthly-treasures.png'
