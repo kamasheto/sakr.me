@@ -49,8 +49,13 @@ const {
 				<div class="prose">
 					{!hideTitle && <>
 						<div class="title">
+							<h1>{title}</h1>
 							<div class="date">
-								{pubDate && <FormattedDate date={pubDate} />}
+								{pubDate && (
+									<div class="published-on">
+										Published on <FormattedDate date={pubDate} />
+									</div>
+								)}
 								{
 									updatedDate && (
 										<div class="last-updated-on">
@@ -59,7 +64,6 @@ const {
 									)
 								}
 							</div>
-							<h1>{title}</h1>
 							<hr />
 						</div>
 					</>}
