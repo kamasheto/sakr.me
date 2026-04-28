@@ -44,7 +44,7 @@ In loving memory of Mohammed. <br />
 		{lastPost && (
 			<section class="pt-12">	
 				<div class="text-m ">Latest post:
-					<a href={`/blog/${getBlogSlug(lastPost.id)}/`} >{lastPost.data.title}</a> (<FormattedDate date={lastPost.data.pubDate} />)
+					<a href={`/blog/${getBlogSlug(lastPost.id)}/`} >{lastPost.data.title}</a> <span class="text-gray-300 text-xs"><FormattedDate date={lastPost.data.pubDate} /></span>
 				</div>
 			</section>
 		)}

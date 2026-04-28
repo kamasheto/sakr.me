@@ -72,12 +72,6 @@ main {
     font-style: italic;
 }
 
-.published-on,
-.last-updated-on {
-    font-size: 0.8em;
-    color: rgb(var(--gray-light));
-}
-
 .comments {
     width: 720px;
     max-width: calc(100% - 2em);
