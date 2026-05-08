@@ -19,7 +19,6 @@ _NONO__CODEX_CMD_ARGS=(--sandbox danger-full-access --ask-for-approval on-reques
 _nono_wrapper() {
   local agent="$1"
   shift
-  local -n config="NONO_${agent:u}"
   local net_args=("--block-net")
   local agent_args=()
   for arg in "$@"; do
