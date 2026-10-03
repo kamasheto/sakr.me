@@ -2,10 +2,10 @@
 import BaseHead from '../../components/BaseHead.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
-import { 
-	SITE_TITLE, 
-	SITE_DESCRIPTION, 
-	HIGHLIGHTED_POSTS 
+import {
+	SITE_TITLE,
+	SITE_DESCRIPTION,
+	HIGHLIGHTED_POSTS
 } from '../../consts';
 import { getCollection } from 'astro:content';
 import FormattedDate from '../../components/FormattedDate.astro';
@@ -53,7 +53,6 @@ const otherPosts = posts.slice(HIGHLIGHTED_POSTS);
 			}
 			ul.highlighted-posts li img {
 				margin-bottom: 0.5rem;
-				border-radius: 12px;
 			}
 			ul.highlighted-posts li a {
 				display: block;

@@ -9,7 +9,6 @@ main {
 .hero-image img {
     display: block;
     margin: 0 auto;
-    border-radius: 12px;
     box-shadow: var(--box-shadow);
 }
 .prose {
@@ -42,7 +41,6 @@ main {
 .horizontal .hero-image img {
     width: 100%;
     height: auto;
-    border-radius: 12px;
     box-shadow: var(--box-shadow);
 }
 
