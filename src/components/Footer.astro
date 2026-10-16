@@ -1,6 +1,6 @@
 ---
 import { FaGithubAlt } from "react-icons/fa6";
-import { PiMailboxBold } from "react-icons/pi";
+import { PiMastodonLogoBold, PiMailboxBold } from "react-icons/pi";
 import { GrInstagram } from "react-icons/gr";
 import { SiBuymeacoffee } from "react-icons/si";
 
@@ -19,6 +19,10 @@ const today = new Date();
 			<span class="sr-only">Email me</span>
 			<PiMailboxBold />
 		</a>
+		<a href="https://mastodon.social/@kamasheto" target="_blank">
+			<span class="sr-only">Find me on mastodon</span>
+			<PiMastodonLogoBold />
+		</a>
 		<a href="https://www.instagram.com/kamasheto/" target="_blank">
 			<span class="sr-only">Find me on Instagram</span>
 			<GrInstagram />
@@ -27,10 +31,10 @@ const today = new Date();
 			<span class="sr-only">Find me on Github</span>
 			<FaGithubAlt />
 		</a>
-		<a href="https://buymeacoffee.com/kamasheto" target="_blank">
+		<!-- <a href="https://buymeacoffee.com/kamasheto" target="_blank">
 			<span class="sr-only">Buy me a pizza</span>
 			<SiBuymeacoffee />
-		</a>
+		</a> -->
 	</div>
 	<div class="mt-4 text-gray-200 text-xs">{COMMIT_HASH}</div>
 </footer>
