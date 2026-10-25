@@ -1,5 +1,0 @@
-[[redirects]]
-  from = "/install-leash"
-  to = "https://raw.githubusercontent.com/kamasheto/leash/main/install.sh"
-  status = 302
-  force = true
